@@ -1,0 +1,26 @@
+{
+  "name": "AlgoHubSearch",
+  "version": "1.0.0",
+  "description": "Algorithm Hub Search Module",
+  "main": "web/server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "if [ ! -e entrypoint ]; then echo 'web/server.js' > entrypoint; fi",
+    "start": "node $(cat entrypoint)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titanzhang/algohub.search.git"
+  },
+  "author": "Liang Zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/titanzhang/algohub.search/issues"
+  },
+  "homepage": "https://github.com/titanzhang/algohub.search"
+}
