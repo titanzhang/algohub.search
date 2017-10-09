@@ -36,7 +36,7 @@ JobBuildAll.prototype.getSiteMap = function() {
 		.then( (httpReturn) => {
 			const xml = UTILS.parseXML(httpReturn.data);
 			for (let index in xml.pages.page) {
-				const url = xml.pages.page[index].url;
+				const url = siteConfig.domainName + xml.pages.page[index].url;
 				const title = xml.pages.page[index].title;
 				const tags = xml.pages.page[index].tags[0].tag.join();
 
