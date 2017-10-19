@@ -19,7 +19,7 @@ module.exports = function(request, response) {
 };
 
 function SearchController(request) {
-	this.baseUrl = loadConfig('site').config.searchpath + 'search';
+	this.baseUrl = loadConfig('site').config.searchpool + '/search';
 	this.query = this.normalizeQuery(request);
 
 	this.keyword = this.query.q;

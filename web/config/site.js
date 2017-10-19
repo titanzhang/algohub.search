@@ -1,4 +1,3 @@
 exports.config = {
-	articlepool: 'http://www.dev.algohub.me:4000',
-	searchpath: '/'
+	searchpool: 'http://search.dev.algohub.me:3000'
 };
