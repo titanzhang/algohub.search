@@ -10,6 +10,9 @@ app.set('x-powered-by', false)
 
 app.use( (request, response, next) => {
 	response.header('ahh', hostname);
+	if (request.headers.origin !== undefined && request.headers.origin.indexOf('algohub.me') >= 0) {
+		response.header('Access-Control-Allow-Origin', request.headers.origin);
+	}
 	next();
 });
 
@@ -30,8 +33,8 @@ app.use( (request, response, next) => {
 // var urlencodedParser = bodyParser.urlencoded({extended: true});
 
 // Controllers
-var siteconfig = loadConfig('site').config;
-app.get(siteconfig.searchpath + 'search', load('web.controller.SearchController'));
+app.get('/search', load('web.controller.SearchController'));
+app.get('/update/:url/:title/:tags', load('web.controller.UpdateController'));
 
 // Handle 404
 // app.get('*', load('controller.404'));
