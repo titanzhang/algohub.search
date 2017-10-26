@@ -12,6 +12,7 @@ app.use( (request, response, next) => {
 	response.header('ahh', hostname);
 	if (request.headers.origin !== undefined && request.headers.origin.indexOf('algohub.me') >= 0) {
 		response.header('Access-Control-Allow-Origin', request.headers.origin);
+		response.header('Access-Control-Allow-Credentials', 'true');
 	}
 	next();
 });
@@ -51,14 +52,14 @@ var gracefulShutdown = function() {
     console.log("Closed out remaining connections.");
     process.exit()
   });
-  
+
 	setTimeout( () => {
 		console.error("Could not close connections in time, forcefully shutting down");
 		process.exit()
 	}, 10*1000);
 }
 
-// listen for TERM signal .e.g. kill 
+// listen for TERM signal .e.g. kill
 process.on ('SIGTERM', gracefulShutdown);
 
 // listen for INT signal e.g. Ctrl-C
