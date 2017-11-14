@@ -7,7 +7,7 @@ node('NodeRaw') {
 
     stage('Production Config') {
       configFileProvider([configFile(fileId: 'algohub_searchweb_solr_production', variable: 'CONFIG_SOLR')]) {
-        sh "cp \"${CONFIG_SOLR}\" web/config/sor.js"
+        sh "cp \"${CONFIG_SOLR}\" web/config/sorl.js"
       }
       configFileProvider([configFile(fileId: 'algohub_searchweb_server_production', variable: 'CONFIG_SERVER')]) {
         sh "cp \"${CONFIG_SERVER}\" web/config/server.js"
